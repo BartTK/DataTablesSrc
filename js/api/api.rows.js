@@ -29,7 +29,7 @@ var __row_selector = function ( settings, selector, opts )
 			rows = _selector_row_indexes( settings, opts );
 		}
 
-		if ( selInt !== null && $.inArray( selInt, rows ) !== -1 ) {
+		if ( selInt !== null && ( rows[selInt] === selInt || $.inArray( selInt, rows ) !== -1 )) {
 			// Selector - integer
 			return [ selInt ];
 		}
