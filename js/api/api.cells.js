@@ -16,7 +16,11 @@ var __cell_selector = function ( settings, selector, opts )
 
 		if ( s === null || s === undefined || fnSelector ) {
 			// All cells and function selectors
-			a = [];
+			if ( fnSelector ) {
+				a = [];
+			} else {
+				a = new Array(rows.length*columns);
+			}
 
 			for ( i=0, ien=rows.length ; i<ien ; i++ ) {
 				row = rows[i];
@@ -37,7 +41,7 @@ var __cell_selector = function ( settings, selector, opts )
 					}
 					else {
 						// Selector - all
-						a.push( o );
+						a[i*columns+j] = o ;
 					}
 				}
 			}
